@@ -1,0 +1,71 @@
+﻿
+@model List<TesteLuta.UI.Models.Fighter>
+<script src="~/Scripts/Home/Home.js"></script>
+
+
+
+<div id="mymodal" class="modal fade in">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="myModalContent">
+                <div class="modal-header">
+                    <h4 class="modal-title">Resultado</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="resultado">
+                        <div class="barra">Campeão</div>
+                        <div id="campeao">Nome campeao</div>
+                    </div>
+                    <div class="resultado">
+                        <div class="barra">Segundo</div>
+                        <div id="segundo">Nome Segundo</div>
+                    </div>
+                    <div class="resultado">
+                        <div class="barra">Terceiro</div>
+                        <div id="terceiro">Nome Terceiro</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header>
+    <div class="title">
+        <h1>Torneio de Luta</h1>
+    </div>
+    <div class="row">
+        <div class="col-2 top selection">
+            <h2>0/20</h2>
+        </div>
+        <div class="col-2 top">
+            <button type="button" id="iniciar" class="btn btn-primary">Iniciar</button>
+        </div>
+    </div>
+</header>
+<div id="content">
+    <section class="cs-area">
+            @foreach (var fighter in Model)
+            {
+                var name = "f" + @fighter.Id.ToString();
+                <div>
+                    <div style="display:block">
+                        <label for=@name>
+                            @fighter.Nome
+                            <input type="checkbox" name=@name id=@name>
+                        </label>
+                    </div>
+                    <div class="card">
+                        <p>Idade:@fighter.Idade</p>
+                        <p>Lutas:@fighter.Lutas</p>
+                        <p>Derrotas:@fighter.Derrotas</p>
+                        <p>Vitórias:@fighter.Vitorias</p>
+                        <p>Artes Marciais:@fighter.ArtesMarciais.Count()</p>
+                    </div>
+                </div>
+            }
+    </section>
+</div>
+
+    
+
